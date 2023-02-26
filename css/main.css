@@ -1,0 +1,495 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family: "Ubuntu", sans-serif;
+}
+ul {
+  list-style: none;
+  margin: 0 0 30px;
+  padding: 0;
+}
+.main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 20px;
+  background-color: hsl(217, 100%, 97%);
+}
+@media (max-width: 767px) {
+  .main {
+    display: block;
+    padding: 0;
+  }
+}
+.form-container {
+  flex-basis: 900px;
+  min-height: 550px;
+  background-color: white;
+  border-radius: 12px;
+  padding: 20px;
+  display: flex;
+}
+@media (max-width: 767px) {
+  .form-container {
+    display: block;
+    background-color: transparent;
+    padding: 0;
+  }
+}
+.form-container .sidebar {
+  flex: 1;
+  background-image: url(../assets/images/bg-sidebar-desktop.svg);
+  background-size: cover;
+  background-position: bottom center;
+  border-radius: 12px;
+  padding: 30px;
+}
+@media (max-width: 767px) {
+  .form-container .sidebar {
+    background-image: url(../assets/images/bg-sidebar-mobile.svg);
+    border-radius: 0;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 20px;
+    min-height: 250px;
+  }
+}
+@media (max-width: 991px) {
+  .form-container .sidebar {
+    flex-basis: 250px;
+    flex-grow: 0;
+  }
+}
+.form-container .sidebar .step-indicator {
+  display: flex;
+  align-items: center;
+  margin-bottom: 30px;
+}
+@media (max-width: 767px) {
+  .form-container .sidebar .step-indicator {
+    margin-bottom: 0;
+  }
+}
+.form-container .step-indicator .indicator-num {
+  margin: 0 15px 0 0;
+  color: white;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  font-weight: 500;
+  border: 1px solid white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+@media (max-width: 767px) {
+  .form-container .step-indicator .indicator-num {
+    margin: 0;
+  }
+}
+.form-container .step-indicator .indicator-num.active {
+  background-color: hsl(206, 94%, 87%);
+  color: hsl(213, 96%, 18%);
+  border-color: hsl(206, 94%, 87%);
+}
+.form-container .step-indicator .indicator-info .subtitle {
+  margin: 0 0 3px;
+  color: hsl(229, 24%, 87%);
+  text-transform: uppercase;
+  font-size: 14px;
+}
+.form-container .step-indicator .indicator-info .title {
+  margin: 0;
+  font-size: 14px;
+  color: white;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+@media (max-width: 767px) {
+  .form-container .step-indicator .indicator-info .title,
+  .form-container .step-indicator .indicator-info .subtitle {
+    display: none;
+  }
+}
+.form-container .steps {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 25px 65px;
+}
+@media (max-width: 991px) {
+  .form-container .steps {
+    padding-left: 25px;
+    padding-right: 0;
+  }
+}
+@media (max-width: 767px) {
+  .form-container .steps {
+    display: block;
+    padding: 0;
+  }
+}
+.form-container .steps .step {
+  display: none;
+}
+@media (max-width: 767px) {
+  .form-container .steps .step {
+    margin: 20px;
+    border-radius: 12px;
+    padding: 25px;
+    background-color: white;
+    position: relative;
+    top: -170px;
+  }
+}
+.form-container .steps .step.active {
+  display: block;
+}
+.form-container .steps .step .title {
+  margin-top: 0;
+  margin-bottom: 10px;
+  text-transform: capitalize;
+  color: hsl(213, 96%, 18%);
+}
+.form-container .steps .step .description {
+  margin-top: 0;
+  margin-bottom: 30px;
+  color: hsl(231, 11%, 63%);
+}
+.form-container .steps .one .label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+.form-container .steps .one .label .label-name {
+  color: hsl(213, 96%, 18%);
+  text-transform: capitalize;
+  font-weight: 500;
+}
+.form-container .steps .one .label .warning {
+  color: hsl(354, 84%, 57%);
+  display: none;
+}
+.form-container .steps .one .label .warning.show {
+  display: block;
+}
+.form-container .steps .one .input {
+  width: 100%;
+  padding: 12px 15px;
+  border-radius: 6px;
+  margin-bottom: 20px;
+  border: 1px solid hsl(229, 24%, 87%);
+  color: hsl(213, 96%, 18%);
+  font-weight: 500;
+}
+.form-container .steps .one .input::placeholder {
+  color: hsl(231, 11%, 63%);
+  transition: 0.3s;
+}
+.form-container .steps .one .input:focus {
+  outline: 1px solid hsl(243, 100%, 62%);
+}
+.form-container .steps .one .input:focus::placeholder {
+  opacity: 0;
+}
+.form-container .steps .one .input.warning:focus {
+  outline-color: hsl(354, 84%, 57%);
+}
+.form-container .steps .two .plan-options {
+  display: flex;
+  gap: 20px;
+}
+.steps .two .plan-options .plan {
+  flex: 1;
+}
+.steps .two .plan-options .plan label {
+  display: block;
+  border: 1px solid hsl(231, 11%, 63%);
+  border-radius: 6px;
+  padding: 20px;
+  transition: 0.3s;
+  cursor: pointer;
+}
+.steps .two .plan-options .plan label:has(input:checked) {
+  border-color: hsl(243, 100%, 62%);
+  background-color: hsl(217, 100%, 97%);
+}
+.steps .two .plan-options .plan label:hover {
+  border-color: hsl(243, 100%, 62%);
+}
+.steps .two .plan-options .plan label input {
+  display: none;
+}
+.steps .two .plan-options .plan label img {
+  margin-bottom: 20px;
+}
+.steps .two .plan-options .plan label .type {
+  margin-bottom: 5px;
+  font-weight: 500;
+  color: hsl(213, 96%, 18%);
+}
+.steps .two .plan-options .plan label .price {
+  display: block;
+  font-size: 14px;
+  color: hsl(231, 11%, 63%);
+}
+.steps .two .plan-options .plan label .offer {
+  font-size: 13px;
+  color: hsl(213, 96%, 18%);
+}
+.steps .two .period {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: hsl(217, 100%, 97%);
+  padding: 10px;
+  border-radius: 6px;
+}
+.steps .two .period .period-name {
+  font-weight: 700;
+  color: hsl(213, 96%, 18%);
+}
+.steps .two .period .toggle-switch {
+  display: block;
+  width: 40px;
+  height: 18px;
+  margin: 0 10px;
+  border-radius: 12px;
+  background-color: hsl(213, 96%, 18%);
+  cursor: pointer;
+  position: relative;
+}
+.steps .two .period .toggle-switch::before {
+  content: "";
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background-color: white;
+  border-radius: 50%;
+  top: 3px;
+  left: 3px;
+  transition: 0.3s;
+}
+.steps .two .period input:checked + .toggle-switch::before {
+  left: 25px;
+}
+.steps .two .period input {
+  display: none;
+}
+.steps .step.three .title {
+  text-transform: none;
+}
+.steps .three .adds-container input {
+  display: none;
+}
+.steps .three .adds-container .add {
+  display: flex;
+  align-items: center;
+  border-radius: 12px;
+  border: 1px solid hsl(229, 24%, 87%);
+  padding: 15px;
+  transition: 0.3s;
+}
+.steps .three .adds-container .add:not(:last-child) {
+  margin-bottom: 15px;
+}
+.steps .three .adds-container input:checked + .add {
+  border-color: hsl(243, 100%, 62%);
+  background-color: hsl(217, 100%, 97%);
+}
+.steps .three .adds-container .add .custom-checkbox {
+  width: 20px;
+  height: 20px;
+  border: 1px solid hsl(229, 24%, 87%);
+  border-radius: 5px;
+  position: relative;
+  margin-right: 15px;
+  transition: 0.3s;
+}
+.steps .three .adds-container .add .custom-checkbox::before {
+  content: "L";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  font-size: 14px;
+  font-weight: 700;
+  transform: scaleX(-1) rotate(-45deg);
+  color: white;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  transition: 0.3s;
+}
+.steps .three .adds-container input:checked + .add .custom-checkbox {
+  background-color: hsl(243, 100%, 62%);
+}
+.steps .three .adds-container input:checked + .add .custom-checkbox::before {
+  display: flex;
+}
+.steps .three .adds-container .add .info-title {
+  margin: 0 0 5px;
+  font-weight: 500;
+  color: hsl(213, 96%, 18%);
+}
+.steps .three .adds-container .add .info-sub {
+  font-size: 14px;
+  margin: 0;
+  color: hsl(231, 11%, 63%);
+}
+.steps .three .adds-container .add .price {
+  display: block;
+  color: hsl(243, 100%, 62%);
+  font-size: 14px;
+  font-weight: 500;
+  margin-left: auto;
+}
+.steps .step.four .title {
+  text-transform: none;
+}
+.steps .four .check-container {
+  background-color: hsl(217, 100%, 97%);
+  border-radius: 6px;
+  padding: 20px;
+}
+.steps .four .check-container .plan-details {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.steps .four .check-container .plan-details:first-child {
+  border-bottom: 1px solid hsl(206, 94%, 87%);
+  padding-bottom: 20px;
+}
+.steps .four .check-container .plan-details:not(:first-child) {
+  padding-top: 20px;
+}
+.steps .four .check-container .plan-details .main-name {
+  color: hsl(213, 96%, 18%);
+  font-weight: 500;
+  text-transform: capitalize;
+  margin: 0 0 5px;
+}
+.steps .four .check-container .plan-details .change {
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  color: hsl(231, 11%, 63%);
+  text-transform: capitalize;
+  text-decoration: underline;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.steps .four .check-container .plan-details .change:focus {
+  outline: none;
+}
+.steps .four .check-container .plan-details .change:hover {
+  color: hsl(243, 100%, 62%);
+}
+.steps .four .check-container .price {
+  color: hsl(213, 96%, 18%);
+}
+.steps .four .check-container .price.basic {
+  font-size: 18px;
+  font-weight: 500;
+}
+.steps .four .check-container .add-ons {
+  color: hsl(231, 11%, 63%);
+  margin: 0;
+}
+.steps .four .total {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 20px 20px;
+}
+.steps .four .total .detail {
+  color: hsl(231, 11%, 63%);
+}
+.steps .four .total .price {
+  color: hsl(243, 100%, 62%);
+  font-size: 20px;
+  font-weight: 700;
+}
+.steps .finish {
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+@media (max-width: 767px) {
+  .steps .finish {
+    width: auto;
+  }
+}
+.steps .step.finish.active {
+  display: flex;
+}
+.steps .finish img {
+  margin-bottom: 20px;
+}
+.steps .step.finish .title {
+  text-transform: none;
+}
+.steps .finish .description {
+  line-height: 1.5;
+  text-align: center;
+}
+.form-container .steps .buttons {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.form-container .steps .buttons button {
+  border: none;
+  text-transform: capitalize;
+  font-weight: 500;
+  cursor: pointer;
+  visibility: hidden;
+}
+.form-container .steps .buttons button.active {
+  visibility: visible;
+}
+.form-container .steps .buttons button:focus {
+  outline: none;
+}
+.form-container .steps .buttons .prev {
+  background-color: transparent;
+  color: hsl(231, 11%, 63%);
+  transition: 0.3s;
+}
+.form-container .steps .buttons .prev:hover {
+  color: hsl(213, 96%, 18%);
+}
+.form-container .steps .buttons .next {
+  background-color: hsl(213, 96%, 18%);
+  color: white;
+  padding: 12px 24px;
+  border-radius: 6px;
+  transition: 0.3s;
+}
+.form-container .steps .buttons .next:hover {
+  background-color: hsl(213, 96%, 30%);
+}
+.form-container .steps .buttons .next.confirm {
+  background-color: hsl(243, 100%, 62%);
+}
+.form-container .steps .buttons .next.confirm:hover {
+  background-color: hsl(243, 100%, 62%, 70%);
+}
+@media (max-width: 767px) {
+  .form-container .steps .buttons {
+    background-color: white;
+    padding: 20px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+  }
+}

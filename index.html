@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/normalize.css" />
+    <link rel="stylesheet" href="css/main.css" />
+    <title>Frontend Mentor | Multi-step form</title>
+  </head>
+  <body>
+    <main class="main">
+      <div class="form-container">
+        <div class="sidebar">
+          <div class="step-indicator">
+            <p class="indicator-num active">1</p>
+            <div class="indicator-info">
+              <p class="subtitle">step 1</p>
+              <p class="title">your info</p>
+            </div>
+          </div>
+          <div class="step-indicator">
+            <p class="indicator-num">2</p>
+            <div class="indicator-info">
+              <p class="subtitle">step 2</p>
+              <p class="title">select plan</p>
+            </div>
+          </div>
+          <div class="step-indicator">
+            <p class="indicator-num">3</p>
+            <div class="indicator-info">
+              <p class="subtitle">step 3</p>
+              <p class="title">add-ons</p>
+            </div>
+          </div>
+          <div class="step-indicator">
+            <p class="indicator-num">4</p>
+            <div class="indicator-info">
+              <p class="subtitle">step 4</p>
+              <p class="title">summary</p>
+            </div>
+          </div>
+        </div>
+        <form action="" class="steps">
+          <div class="step one active" id="step-one">
+            <h1 class="title">personal info</h1>
+            <p class="description">
+              Please provide your name, email address, and phone number.
+            </p>
+            <label for="name" class="label">
+              <span class="label-name">name</span>
+              <span class="warning" id="name-warning"
+                >The name is not valid</span
+              >
+            </label>
+            <input
+              type="text"
+              placeholder="e.g.Paula Tony"
+              id="name"
+              class="input"
+            />
+
+            <label for="email" class="label">
+              <span class="label-name">email</span>
+              <span class="warning" id="email-warning"
+                >The email is not valid</span
+              >
+            </label>
+            <input
+              type="email"
+              placeholder="e.g.name@domain.com"
+              id="email"
+              class="input"
+            />
+
+            <label for="phone" class="label">
+              <span class="label-name">phone number</span>
+              <span class="warning" id="phone-warning"
+                >The number is not valid</span
+              >
+            </label>
+            <input
+              type="text"
+              placeholder="e.g.+1234567890"
+              id="phone"
+              class="input"
+            />
+          </div>
+
+          <div class="step two" id="step-two">
+            <h1 class="title">select your plan</h1>
+            <p class="description">
+              You have the option of monthly or yearly billing.
+            </p>
+            <ul class="plan-options">
+              <li class="plan">
+                <label for="arcade" data-plan="arcade">
+                  <img src="assets/images/icon-arcade.svg" />
+                  <p class="type">Arcade</p>
+                  <span class="price" id="price">$9/mo</span>
+                  <input
+                    type="radio"
+                    name="plan"
+                    id="arcade"
+                    data-plan="arcade"
+                    checked
+                  />
+                </label>
+              </li>
+              <li class="plan">
+                <label for="advanced" data-plan="advanced">
+                  <img src="assets/images/icon-advanced.svg" />
+                  <p class="type">Advanced</p>
+                  <span class="price" id="price">$12/mo</span>
+                  <input
+                    type="radio"
+                    name="plan"
+                    id="advanced"
+                    data-plan="advanced"
+                  />
+                </label>
+              </li>
+              <li class="plan">
+                <label for="pro" data-plan="pro">
+                  <img src="assets/images/icon-pro.svg" />
+                  <p class="type">Pro</p>
+                  <span class="price" id="price">$15/mo</span>
+                  <input type="radio" name="plan" id="pro" data-plan="pro" />
+                </label>
+              </li>
+            </ul>
+            <div class="period">
+              <span class="period-name">Monthly</span>
+              <input type="checkbox" name="period" id="period" />
+              <label for="period" class="toggle-switch"></label>
+              <span class="period-name">Yearly</span>
+            </div>
+          </div>
+
+          <div class="step three" id="step-three">
+            <h1 class="title">Pick add-ons</h1>
+            <p class="description">
+              Add-ons help enhance your gaming experience.
+            </p>
+            <div class="adds-container">
+              <input
+                type="checkbox"
+                data-adds="onlineService"
+                id="online-service"
+              />
+              <label class="add" for="online-service" data-adds="onlineService">
+                <div class="custom-checkbox"></div>
+                <div class="add-info">
+                  <p class="info-title">Online service</p>
+                  <p class="info-sub">Access to multiplayer games</p>
+                </div>
+                <p class="price">+$1/mo</p>
+              </label>
+              <input
+                type="checkbox"
+                data-adds="largerStorage"
+                id="larger-storage"
+              />
+              <label class="add" for="larger-storage" data-adds="largerStorage">
+                <div class="custom-checkbox"></div>
+                <div class="add-info">
+                  <p class="info-title">Larger storage</p>
+                  <p class="info-sub">Extra 1TB of cloud save</p>
+                </div>
+                <p class="price">+$2/mo</p>
+              </label>
+              <input
+                type="checkbox"
+                data-adds="customizableProfile"
+                id="customizable-profile"
+              />
+              <label
+                class="add"
+                for="customizable-profile"
+                data-adds="customizableProfile"
+              >
+                <div class="custom-checkbox"></div>
+                <div class="add-info">
+                  <p class="info-title">Customizable Profile</p>
+                  <p class="info-sub">Custom theme on your profile</p>
+                </div>
+                <p class="price">+$2/mo</p>
+              </label>
+            </div>
+          </div>
+
+          <div class="step four" id="step-four">
+            <h1 class="title">Finishing up</h1>
+            <p class="description">
+              Double-check everything looks OK before confirming.
+            </p>
+            <div class="check-container">
+              <div class="plan-details">
+                <div class="detail">
+                  <p class="main-name">arcade (monthly)</p>
+                  <button class="change">change</button>
+                </div>
+                <span class="price basic">$9/mo</span>
+              </div>
+            </div>
+            <div class="total">
+              <p class="detail">Total (per month)</p>
+              <div class="price">+$12/mo</div>
+            </div>
+          </div>
+
+          <div class="step finish">
+            <img src="assets/images/icon-thank-you.svg" alt="" />
+            <h1 class="title">Thank you!</h1>
+            <p class="description">
+              Thanks for confirming your subscription! We hope you have fun
+              using our platform. If you ever need support. please feel free to
+              email us at support@loremgaming.com
+            </p>
+          </div>
+
+          <div class="buttons">
+            <button class="prev" id="prev">go back</button>
+            <button class="next active" id="next">next step</button>
+          </div>
+        </form>
+      </div>
+    </main>
+    <script src="js/main.js"></script>
+  </body>
+</html>
